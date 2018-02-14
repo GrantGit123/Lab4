@@ -43,7 +43,7 @@ public class Colosseum {
      * <p>
      * Requirements we should check the user for: <br>
      * - Hit points are between 1 and MAX_HIT_POINTS <br>
-     * - No more than 50 points are split between attack level and defense leve <br>
+     * - No more than 50 points are split between attack level and defense level <br>
      * - Attack level and defense level must have at least 1 point each <br>
      * Example of how this will look to the user:
      * <p>
@@ -65,14 +65,39 @@ public class Colosseum {
      * Sorry. The attack level must be between 1 and 49: 27 <br>
      * Enter your defense level (1-23): 24 <br>
      * Sorry. The defense level must be between 1 and 23: 23
-     *
      * @return tempPokemon - the Pokemon we built and are going to set our fighting Pokemon to <br>
      *         (Look, we can return objects too!)
      *         <p>
      *         Implement this function.
      */
+
     public static Pokemon buildPokemon() {
         Pokemon tempPokemon = new Pokemon();
+        int hitpoints = myScan.nextInt();
+        int attackLevel = myScan.nextInt();
+        int defenseLevel = myScan.nextInt();
+        String name = myScan.next();
+        System.out.println("Please name your Pokemon");
+        System.out.println(name);
+        System.out.println("How many hit points will it have? (1-50)");
+        if (hitpoints > MAX_HIT_POINTS) {
+            System.out.println("Sorry. Hit points must be between 1 and 50");
+        } else if (hitpoints < 1) {
+            System.out.println("Sorry. Hit points must be between 1 and 50");
+        } else {
+            System.out.println(hitpoints);
+        }
+        System.out.println("Split fifty points between attack level and defense level:");
+        System.out.println("Enter your attack level (1-49");
+        if (attackLevel >= MAX_HIT_POINTS || attackLevel < 1) {
+            System.out.println("Sorry. The attack level must be between 1 and 49");
+        } else {
+            System.out.println(attackLevel);
+        }
+        System.out.println("Enter your defense level (1-23)");
+        if (defenseLevel >= ((MAX_HIT_POINTS / 2) - 1) || defenseLevel < 1) {
+            System.out.println("Sorry. The defense level must be between 1 and 23");
+        }
         return tempPokemon;
     }
 
